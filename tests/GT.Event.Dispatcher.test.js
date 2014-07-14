@@ -1,8 +1,18 @@
-describe("A dispatcher", function() {
+define(['GT.Event.Dispatcher'], function( Dispatcher ) {
 
-	it("can be constructed", function() {
-		var dispatcher = new GT.Event.Dispatcher();
-		expect(dispatcher).toBeDefined();
+	describe("A dispatcher", function() {
+
+		it("can be constructed", function() {
+			var dispatcher = new Dispatcher();
+			expect(dispatcher).toBeDefined();
+		});
+
+		it("have a listener added", function() {
+			var dispatcher = new Dispatcher();
+			dispatcher.on('myevent', function() {});
+			expect(dispatcher.getListeners).toBeDefined();
+		});
+
 	});
 
 });
