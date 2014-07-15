@@ -1,6 +1,6 @@
 {
   "name": "GTEventDispatcher",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "authors": [
     "Timothy Groves <groves@greatwhiteark.com>"
   ],
@@ -14,7 +14,9 @@
     "tests",
     "grunt",
     "*.sublime-project",
-    "Gruntfile.js"
+    "Gruntfile.js",
+    "package.json",
+    "src"
   ],
   "dependencies": {
     "requirejs": "~2.1.14"

@@ -3,6 +3,6 @@
     "jshintrc": true
   },
   "src": [
-    "src/js/*.js"
+    "src/js/GT/Event/Dispatcher.js"
   ]
 }

@@ -8,6 +8,7 @@ module.exports = function(grunt) {
 		// tasks
 		jscs:         grunt.file.readJSON('./grunt/tasks/jscs.json'),
 		jshint:       grunt.file.readJSON('./grunt/tasks/jshint.json'),
+
 		jasmine: {
 			mytask: {
 				options: {
@@ -28,19 +29,39 @@ module.exports = function(grunt) {
 					}
 				}
 			}
+		},
+
+		copy: {
+			main: {
+				files: [
+					{src:'src/js/GT/Event/Dispatcher.js', dest:'dist/GT/Event/Dispatcher.js'}
+				]
+			}
+		},
+
+		uglify: {
+			main: {
+				files: {
+					'dist/GT/Event/Dispatcher.min.js': ['src/js/GT/Event/Dispatcher.js']
+				}
+			}
 		}
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-jshint');
-	grunt.loadNpmTasks('grunt-contrib-jscs');
+	grunt.loadNpmTasks('grunt-jscs');
 	grunt.loadNpmTasks('grunt-contrib-jasmine');
+	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
 
 	grunt.registerTask(
 		'default',
 		[
 			'jscs',
 			'jshint:src',
-			'jasmine'
+			'jasmine',
+			'copy',
+			'uglify'
 		]
 	);
 

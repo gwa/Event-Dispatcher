@@ -8,9 +8,11 @@
   "author": "Timothy Groves <groves@greatwhiteark.com>",
   "devDependencies": {
     "grunt": "^0.4.4",
+    "grunt-contrib-copy": "^0.5.0",
     "grunt-contrib-jasmine": "^0.6.3",
-    "grunt-contrib-jscs": "^0.1.8",
     "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-uglify": "^0.5.0",
+    "grunt-jscs": "^0.6.1",
     "grunt-template-jasmine-requirejs": "^0.2.0"
   }
 }
