@@ -58,6 +58,13 @@ module.exports = function(grunt) {
 					'dist/Dispatcher.min.js': ['src/js/Dispatcher.js']
 				}
 			}
+		},
+
+		githooks: {
+			all: {
+				// Will run the jshint and test:unit tasks at every commit
+				'pre-commit': 'default',
+			}
 		}
 	});
 
@@ -66,6 +73,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-jasmine');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-githooks');
 
 	grunt.registerTask(
 		'default',
