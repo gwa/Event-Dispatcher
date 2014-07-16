@@ -6,24 +6,37 @@ module.exports = function(grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 
 		// tasks
-		jscs:         grunt.file.readJSON('./grunt/tasks/jscs.json'),
-		jshint:       grunt.file.readJSON('./grunt/tasks/jshint.json'),
+		jscs: {
+			src: 'src/js/Dispatcher.js',
+			options: {
+				config: '.jscsrc'
+			}
+		},
+
+		jshint: {
+			options: {
+				jshintrc: true
+			},
+			src: [
+				'src/js/Dispatcher.js'
+			]
+		},
 
 		jasmine: {
 			mytask: {
 				options: {
 					vendor: [
-						"bower_components/requirejs/require.js"
+						'bower_components/requirejs/require.js'
 					],
 					specs: [
-						"tests/GT.Event.Dispatcher.test.js"
+						'tests/Dispatcher.test.js'
 					],
 					template: require('grunt-template-jasmine-requirejs'),
 					templateOptions: {
 						requireConfig: {
 							baseUrl: './',
 							paths: {
-								'GT.Event.Dispatcher': 'src/js/GT/Event/Dispatcher'
+								'Gwa.Event.Dispatcher': 'src/js/Dispatcher'
 							}
 						}
 					}
@@ -34,7 +47,7 @@ module.exports = function(grunt) {
 		copy: {
 			main: {
 				files: [
-					{src:'src/js/GT/Event/Dispatcher.js', dest:'dist/GT/Event/Dispatcher.js'}
+					{src:'src/js/Dispatcher.js', dest:'dist/Dispatcher.js'}
 				]
 			}
 		},
@@ -42,7 +55,7 @@ module.exports = function(grunt) {
 		uglify: {
 			main: {
 				files: {
-					'dist/GT/Event/Dispatcher.min.js': ['src/js/GT/Event/Dispatcher.js']
+					'dist/Dispatcher.min.js': ['src/js/Dispatcher.js']
 				}
 			}
 		}

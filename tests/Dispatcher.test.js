@@ -1,4 +1,4 @@
-define(['GT.Event.Dispatcher'], function( Dispatcher ) {
+define(['Gwa.Event.Dispatcher'], function( Dispatcher ) {
 
 	describe("A dispatcher", function() {
 

@@ -1,2 +1,2 @@
-GT-Event-Dispatcher
-===================
+Gwa.Event.Dispatcher
+====================

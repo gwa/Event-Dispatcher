@@ -1,7 +1,0 @@
-{
-    "dist": {
-        "files": {
-            "src/css-compiled/gt-ui-tabbar.css": "src/scss/gt-ui-tabbar.scss"
-        }
-    }
-}

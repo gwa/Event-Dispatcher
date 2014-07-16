@@ -1,6 +1,0 @@
-{
-  "src": "src/js/GT/Event/Dispatcher.js",
-  "options": {
-    "config": ".jscsrc"
-  }
-}

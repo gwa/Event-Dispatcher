@@ -1,8 +1,0 @@
-{
-  "options": {
-    "csslintrc": ".csslintrc"
-  },
-	"src": [
-    "src/css/*.css"
-  ]
-}
