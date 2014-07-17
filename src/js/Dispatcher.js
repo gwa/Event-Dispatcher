@@ -47,7 +47,7 @@ define([], function() {
 				var i;
 				if (typeof(func) === 'number') {
 					if (typeof(_listeners[event][func]) !== 'undefined') {
-						_listeners[event][func] = undefined;
+						delete _listeners[event][func];
 						return true;
 					}
 					return false;
@@ -59,7 +59,7 @@ define([], function() {
 				}
 				for (i in _listeners[event]) {
 					if (_listeners[event][i].func === func) {
-						_listeners[event][i] = undefined;
+						delete _listeners[event][i];
 						return true;
 					}
 				}
@@ -94,7 +94,7 @@ define([], function() {
 							c++;
 						}
 						if (l.once) {
-							_listeners[event][i] = undefined;
+							delete _listeners[event][i];
 						}
 					}
 				}
