@@ -27,6 +27,19 @@ define(['Gwa.Event.Dispatcher'], function( Dispatcher ) {
 			expect(foo).toEqual('bar');
 		});
 
+		it("can dispatch an event to listener function only once", function() {
+			var dispatcher = new Dispatcher();
+			var foo = null;
+			dispatcher.once('myevent', function(arg) {
+				foo = arg;
+			});
+			expect(foo).toBeNull();
+			dispatcher.dispatch('myevent', 'bar');
+			expect(foo).toEqual('bar');
+			dispatcher.dispatch('myevent', 'baz');
+			expect(foo).toEqual('bar');
+		});
+
 		it("can dispatch an event to more than one listener function", function() {
 			var dispatcher = new Dispatcher();
 			var foo = null;

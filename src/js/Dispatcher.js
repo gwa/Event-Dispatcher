@@ -27,12 +27,15 @@
 			 */
 			on: function( event, func, obj, once ) {
 				var id;
+
 				if (!_listeners[event]) {
 					_listeners[event] = [];
 					_listenerids[event] = 0;
 				}
+
 				id = ++_listenerids[event];
 				_listeners[event][id] = {func: func, obj: obj, once: once};
+
 				return id;
 			},
 
@@ -54,6 +57,7 @@
 			 */
 			off: function( event, func ) {
 				var i;
+
 				if (typeof(func) === 'number') {
 					if (typeof(_listeners[event][func]) !== 'undefined') {
 						delete _listeners[event][func];
@@ -61,17 +65,25 @@
 					}
 					return false;
 				}
+
 				if (typeof(func) === 'undefined') {
 					_listeners[event] = [];
 					// do not reset ids
 					return true;
 				}
+
+				if (typeof(func) === 'undefined') {
+					_listeners = {};
+					return true;
+				}
+
 				for (i in _listeners[event]) {
 					if (_listeners[event][i].func === func) {
 						delete _listeners[event][i];
 						return true;
 					}
 				}
+
 				return false;
 			},
 
@@ -89,9 +101,11 @@
 			 */
 			dispatch: function( event ) {
 				var args = [], i, len, l, c = 0;
+
 				for (i = 1, len = arguments.length; i < len; i++) {
 					args.push(arguments[i]);
 				}
+
 				if (_listeners[event]) {
 					for (i in _listeners[event]) {
 						l = _listeners[event][i];
